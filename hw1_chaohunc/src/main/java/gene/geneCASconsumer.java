@@ -1,4 +1,5 @@
 package gene;
+
 /* 
  *******************************************************************************************
  * N O T E :     The XML format (XCAS) that this Cas Consumer outputs, is eventually 
@@ -34,17 +35,6 @@ import org.apache.uima.util.XMLSerializer;
 import org.apache.xml.serialize.TextSerializer;
 import org.xml.sax.SAXException;
 
-/**
- * A simple CAS consumer that generates XCAS (XML representation of the CAS) files in the
- * filesystem.
- * <p>
- * This CAS Consumer takes one parameters:
- * <ul>
- * <li><code>OutputDirectory</code> - path to directory into which output files will be written</li>
- * </ul>
- * 
- * 
- */
 public class geneCASconsumer extends CasConsumer_ImplBase {
   /**
    * Name of configuration parameter that must be set to the path of a directory into which the
@@ -52,13 +42,12 @@ public class geneCASconsumer extends CasConsumer_ImplBase {
    */
   public static final String PARAM_OUTPUTDIR = "OutputDirectory";
 
-
   public void initialize() throws ResourceInitializationException {
   }
 
   /**
-   * Processes the CasContainer which was populated by the TextAnalysisEngines. <br>
-   * In this case, the CAS is converted to XML and written into the output file .
+   * Processes the CasContainer which was populated by the AnalysisEngines. <br>
+   * In this case, the CAS is converted to txt file, which satisfied the style with sample.out file.
    * 
    * @param aCAS
    *          CasContainer which has been populated by the TAEs
@@ -66,7 +55,6 @@ public class geneCASconsumer extends CasConsumer_ImplBase {
    * @throws ResourceProcessException
    *           if there is an error in processing the Resource
    * 
-   * @see org.apache.uima.collection.base_cpm.CasObjectProcessor#processCas(org.apache.uima.cas.CAS)
    */
   public void processCas(CAS aCAS) throws ResourceProcessException {
     JCas jcas;
@@ -76,23 +64,22 @@ public class geneCASconsumer extends CasConsumer_ImplBase {
       throw new ResourceProcessException(e);
     }
 
-    // retrieve the filename of the input file from the CAS
-    //FSIterator it = jcas.getAnnotationIndex(SourceDocumentInformation.type).iterator();
     FSIterator<Annotation> iter = jcas.getAnnotationIndex(GeneObj.type).iterator();
 
-    //File outFile = null;
+    // File outFile = null;
     BufferedWriter oFile2 = null;
     try {
-      oFile2 = new BufferedWriter(new FileWriter(new File ((String) getConfigParameterValue("OutputFile"))));
+      oFile2 = new BufferedWriter(new FileWriter(new File(
+              (String) getConfigParameterValue("OutputFile"))));
     } catch (IOException e2) {
       // TODO Auto-generated catch block
       e2.printStackTrace();
     }
-    int count = 0;
     while (iter.hasNext()) {
-      GeneObj annotator = (GeneObj) iter.next();
-      String output = annotator.getID() + "|" + annotator.getPosStart() + " "+ annotator.getPosEnd() + "|" + annotator.getGeneName();
-      System.out.println(annotator.getGeneName());
+      GeneObj gene = (GeneObj) iter.next();
+      String output = gene.getID() + "|" + gene.getPosStart() + " " + gene.getPosEnd() + "|"
+              + gene.getGeneName();
+      System.out.println(gene.getGeneName());
       try {
         oFile2.write(output);
         oFile2.newLine();
@@ -100,21 +87,15 @@ public class geneCASconsumer extends CasConsumer_ImplBase {
         // TODO Auto-generated catch block
         e.printStackTrace();
       }
-      count++;
-    //  sortedAnnotations.put(annotator.getSortOrder(), output);
 
     }
-    System.out.println("Count: " + count);
     try {
       oFile2.close();
     } catch (IOException e1) {
       // TODO Auto-generated catch block
       e1.printStackTrace();
     }
-    //for (Map.Entry<Long, String> m : sortedAnnotations.entrySet()) {
-    //}
-    
-   
+
   }
 
 }

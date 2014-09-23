@@ -25,7 +25,7 @@
     <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
     <implementationName>gene.geneCollectionReader</implementationName>
     <processingResourceMetaData>
-        <name>ReadFileCollectionReader</name>
+        <name>geneCollectionReader</name>
         <description>Reads files from the filesystem.  This CollectionReader may be used
           with or without a CAS Initializer.  If a CAS Initializer is supplied, it will
           be passed an InputStream to the file and must populate the CAS from that
@@ -46,7 +46,7 @@
       <nameValuePair>
         <name>InputFile</name>
         <value>
-          <string>src/main/resources/hw1-chaohunc.in</string>
+          <string>hw1-chaohunc.out</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>
@@ -54,10 +54,7 @@
         <!-- Type System of CASes returned by this Collection Reader -->
 
         <typeSystemDescription>
-          <imports>
-            <import name="org.apache.uima.examples.SourceDocumentInformation"/>
-          </imports>
-        </typeSystemDescription>
+          </typeSystemDescription>
 
         <typePriorities/>
     <fsIndexCollection/>
@@ -65,8 +62,7 @@
           	<capability>
           		<inputs/>
           		<outputs>
-          			<type allAnnotatorFeatures="true">org.apache.uima.examples.SourceDocumentInformation</type>
-          		</outputs>
+          			</outputs>
           	<languagesSupported/>
       </capability>
         </capabilities>
