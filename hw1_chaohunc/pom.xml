@@ -4,7 +4,7 @@
 	<groupId>edu.cmu.lti.11791.f14.hw1
 </groupId>
 	<artifactId>hw1_chaohunc</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4</version>
 	<repositories>
 		<repository>
 			<id>oaqa</id>
@@ -112,7 +112,7 @@
 		</dependency>
 	</dependencies>
 	<scm>
-		<connection>https://github.com/chaohunc/hw1-chaohunc.git</connection>
-		<developerConnection>https://github.com/chaohunc/hw1-chaohunc.git</developerConnection>
+		<connection>scm:git:https://github.com/chaohunc/hw1-chaohunc.git</connection>
+		<developerConnection>scm:git:https://github.com/chaohunc/hw1-chaohunc.git</developerConnection>
 	</scm>
 </project>
