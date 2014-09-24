@@ -55,7 +55,7 @@
     </capabilities>
     <operationalProperties>
       <modifiesCas>false</modifiesCas>
-      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <multipleDeploymentAllowed>false</multipleDeploymentAllowed>
 	  <outputsNewCASes>false</outputsNewCASes>	
     </operationalProperties>
   </processingResourceMetaData>
