@@ -112,13 +112,9 @@
 			<version>4.1.0</version>
 		</dependency>
 	</dependencies>
-	<pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
-			</plugin>
-		</plugins>
-	</pluginManagement>
+
+	<scm>
+		<connection>scm:git:git@github.com:chaohunc/hw1-chaohunc.git</connection>
+		<developerConnection>scm:git:git@github.com:chaohunc/hw1-chaohunc.git</developerConnection>
+	</scm>
 </project>
