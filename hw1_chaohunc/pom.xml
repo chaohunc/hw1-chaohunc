@@ -114,7 +114,7 @@
 	</dependencies>
 
 	<scm>
-		<connection>scm:git:git@github.com:chaohunc/hw1-chaohunc.git</connection>
-		<developerConnection>scm:git:git@github.com:chaohunc/hw1-chaohunc.git</developerConnection>
+		<connection>scm:git:git://github.com/chaohunc/hw1-chaohunc.git</connection>
+		<developerConnection>scm:git:git://github.com/chaohunc/hw1-chaohunc.git</developerConnection>
 	</scm>
 </project>
