@@ -51,6 +51,8 @@ public class geneAnnotator extends JCasAnnotator_ImplBase {
 
     InputStream in = this.getClass().getClassLoader()
             .getResourceAsStream("src/main/resources/models/ne-en-bio-genetag.HmmChunker");
+  //  InputStream in = this.getClass().getClassLoader()
+  //          .getResourceAsStream("src/main/resources/models/ne-en-bio-genia.TokenShapeChunker");
     ObjectInputStream objIn = null;
     try {
       objIn = new ObjectInputStream(in);
