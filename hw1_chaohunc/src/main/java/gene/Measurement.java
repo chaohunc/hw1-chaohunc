@@ -11,7 +11,7 @@ public class Measurement {
     HashMap<String,Integer> map = new HashMap();
     Measurement() throws IOException
     {
-      InputStream in = this.getClass().getClassLoader().getResourceAsStream("src/main/resources/data/sample.out");
+      InputStream in = this.getClass().getClassLoader().getResourceAsStream("main/resources/data/sample.out");
       BufferedReader reader = new BufferedReader(new InputStreamReader(in));
       String str;
       while ((str = reader.readLine())!=null)

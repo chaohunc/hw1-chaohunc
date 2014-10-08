@@ -47,10 +47,13 @@ public class geneAnnotator extends JCasAnnotator_ImplBase {
     // TODO Auto-generated method stub
     String docText = aJCas.getDocumentText();
     // System.out.println(docText);
-    // File modelFile = new File("ne-en-bio-genetag.HmmChunker");
+     File modelFile = new File("ne-en-bio-genetag.HmmChunker");
+     InputStream in = this.getClass().getClassLoader()
+             .getResourceAsStream("main/resources/models/ne-en-bio-genetag.HmmChunker");
 
-    InputStream in = this.getClass().getClassLoader()
-            .getResourceAsStream("src/main/resources/models/ne-en-bio-genetag.HmmChunker");
+     System.out.println(in);
+     //  InputStream in = this.getClass().getClassLoader()
+  //          .getResourceAsStream("src/main/resources/models/ne-en-bio-genetag.HmmChunker");
   //  InputStream in = this.getClass().getClassLoader()
   //          .getResourceAsStream("src/main/resources/models/ne-en-bio-genia.TokenShapeChunker");
     ObjectInputStream objIn = null;
@@ -75,7 +78,7 @@ public class geneAnnotator extends JCasAnnotator_ImplBase {
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
-    }
+   }
     try {
       ConfidenceChunker chunker = (ConfidenceChunker) objIn.readObject();
       for (int i = 0; i < str.length; i++) {
@@ -142,7 +145,7 @@ public class geneAnnotator extends JCasAnnotator_ImplBase {
       // TODO Auto-generated catch block
       e1.printStackTrace();
     }
-
+    System.exit(0);
   }
 
 }
